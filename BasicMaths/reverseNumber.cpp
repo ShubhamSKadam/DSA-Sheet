@@ -9,13 +9,12 @@ int main() {
 
 	while (n != 0) {
 		int r = n % 10;
+		if (ans > INT_MAX / 10 || ans < INT_MIN / 10) {
+			return true;
+		}
 		ans = (ans * 10) + r;
 		n = n / 10;
 	}
-
-	cout << ans << endl;
-	cout << INT_MIN << endl;
-	cout << INT_MAX << endl;
 
 	return 0;
 }
