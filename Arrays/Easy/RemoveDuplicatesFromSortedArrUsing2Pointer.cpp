@@ -1,19 +1,17 @@
-// The Bruteforce approach will be using a Hash set
 #include<bits/stdc++.h>
 using namespace std;
 int removeDuplicates(int *arr, int n) {
-	set <int> numSet;
 
-	for (int i = 0; i < n; i++) {
-		numSet.insert(arr[i]);
+	int i = 0, j = 1;
+	while (j < n) {
+		if (arr[i] == arr[j])
+			j++;
+		else {
+			i++;
+			arr[i] = arr[j];
+		}
 	}
-
-	int k = numSet.size();
-	int j = 0;
-	for (int x : numSet) {
-		arr[j++] = x;
-	}
-	return k;
+	return i + 1;
 }
 int main() {
 
@@ -21,7 +19,8 @@ int main() {
 	cin >> n;
 
 	int *arr = new int[n];
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; ++i)
+	{
 		cin >> arr[i];
 	}
 
@@ -31,6 +30,7 @@ int main() {
 		cout << arr[i] << " ";
 	}
 	cout << endl;
-
 	delete [] arr;
+
+	return 0;
 }
