@@ -1,26 +1,26 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
-	int n;
-	cin >> n;
+bool isPalindrome(int n) {
 
 	int temp = n;
-	long ans = 0;
-
-	while (n > 0) {
+	int ans = 0;
+	while (n != 0) {
 		int r = n % 10;
-		ans = ( ans * 10 ) + r;
+		ans = ans * 10 + r;
 		n = n / 10;
 	}
 
-	if (ans < 0) {
-		return false;
-	}
-
 	if (ans == temp)
-		cout << "True" << endl;
+		return true;
 	else
-		cout << "False" << endl;
+		return false;
+}
+int main() {
+
+	int n;
+	cin >> n;
+
+	cout << isPalindrome(n) << endl;
 
 	return 0;
 }
