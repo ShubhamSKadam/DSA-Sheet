@@ -3,12 +3,15 @@ using namespace std;
 int removeDuplicates(int *arr, int n) {
 
 	int i = 0, j = 1;
-	while (j < n) {
-		if (arr[i] == arr[j])
+	while (j < n || i > j) {
+
+		if (arr[i] == arr[j] || i == j)
 			j++;
+
 		else {
 			i++;
-			arr[i] = arr[j];
+			if (i != j)
+				arr[i] = arr[j];
 		}
 	}
 	return i + 1;
