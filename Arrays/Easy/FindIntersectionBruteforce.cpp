@@ -2,9 +2,26 @@
 using namespace std;
 void findIntersection(int *arr1, int n, int *arr2, int m) {
 
-	for (int i = 0; i < n; i++) {
+	vector<int> ans;
+	vector<int> visited(m, 0);
 
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+
+			if (arr1[i] == arr2[j] && visited[j] == 0) {
+				ans.push_back(arr2[j]);
+				visited[j] = 1;
+				break;
+			}
+			else if (arr2[j] > arr1[i])
+				break;
+		}
 	}
+	for (int i = 0; i < ans.size(); ++i)
+	{
+		cout << ans[i] << " ";
+	}
+	cout << endl;
 }
 int main() {
 
