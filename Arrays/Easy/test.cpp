@@ -1,31 +1,59 @@
+// The Time Complexity of this code is O(N)
+// The Space Complexity of this code is O(N) as we are using an additional tempLeft and tempRight vector
 #include<bits/stdc++.h>
 using namespace std;
-int missingNumber(int A[], int N)
-{
-    // Your code goes here
-    vector<int> temp(N + 1, 0);
+void rotateLeft(vector<int>& arr, int n, int p) {
 
-    for (int i = 0; i < N - 1; i++) {
-        temp[A[i]]++;
+    vector<int> tempLeft;
+    for (int i = p; i < p + n; i++) {
+        tempLeft.push_back(arr[i % n]);
     }
 
-    for (int i = 1; i <= temp.size(); i++) {
-        if (temp[i] == 0)
-            return i;
-    }
-    return -1;
+    arr = tempLeft;
 }
+void rotateRight(vector<int>& arr, int n, int p) {
 
+    vector<int> tempRight(n);
+    for (int i = 0; i < n; i++) {
+        tempRight[(i + p) % n] = arr[i];
+    }
+    arr = tempRight;
+}
 int main() {
+
     int n;
+    cout << "Enter the size of the array" << endl;
     cin >> n;
 
-    int *arr = new int[n];
-    for (int i = 0; i < n - 1; ++i)
+    vector<int> arr;
+    cout << "Enter the array elements" << endl;
+    for (int i = 0; i < n; ++i)
     {
-        cin >> arr[i];
+        int x;
+        cin >> x;
+        arr.push_back(x);
     }
 
-    cout << missingNumber(arr, n) << endl;
-    delete [] arr;
+    int p;
+    cout << "Enter the number of positions you want to shift" << endl;
+    cin >> p;
+
+    int d;
+    cout << "Enter the direction at which you want to rotate 0-for left 1-for right" << endl;
+    cin >> d;
+
+    if (d)
+        rotateRight(arr, n, p);
+    else
+        rotateLeft(arr, n, p);
+
+    cout << "Rotated Array is as follows: " << endl;
+
+    for (int i = 0; i < n; ++i)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
