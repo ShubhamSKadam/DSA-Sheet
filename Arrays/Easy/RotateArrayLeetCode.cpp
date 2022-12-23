@@ -1,3 +1,5 @@
+// TC : O(n)
+// SC : O(n)
 #include <bits/stdc++.h>
 using namespace std;
 void rotateRight(int *arr, int n, int k)

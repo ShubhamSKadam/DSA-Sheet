@@ -1,4 +1,6 @@
 // The Bruteforce approach will be using a Hash set
+// TC : O(n*log(n)) + O(n)
+// SC : O(n)
 #include<bits/stdc++.h>
 using namespace std;
 int removeDuplicates(int *arr, int n) {
