@@ -1,3 +1,5 @@
+// TC : O(n)
+// SC : O(1);
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
@@ -22,4 +24,6 @@ int main() {
 	cout << "Element not found" << endl;
 	return -1;
 	delete [] arr;
+
+
 }
