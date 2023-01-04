@@ -1,3 +1,5 @@
+// TC : O(N)
+// SC : O(26) == O(1)
 #include<bits/stdc++.h>
 using namespace std;
 int main() {
